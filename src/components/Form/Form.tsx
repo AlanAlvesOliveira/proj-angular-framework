@@ -38,6 +38,7 @@ const Form: React.FC<FormData> = () => {
             <Input label="Digite seu Nome" type="text" value={formData.name} name="name" onChange={handleInputChange} />
             <Input label="Digite seu Email" type="text" value={formData.email} name="email" onChange={handleInputChange} />
             <Button label="Salvar" />
+            
         </form>
 
     );
