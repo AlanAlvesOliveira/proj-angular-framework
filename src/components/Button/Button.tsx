@@ -1,14 +1,13 @@
 import React from "react";
 import './Button.scss';
 
-interface ButtonPros {
-    label: string;
+interface ButtonPros {    
+    children: React.ReactNode
     onClick?: () => void;
-    disabled?: boolean;
-    
+    disabled?: boolean;    
 }
 
-const Button: React.FC<ButtonPros> = ({ label, disabled = false, onClick }) => {
+const Button: React.FC<ButtonPros> = ({children, disabled = false, onClick }) => {
 
 
     return (
@@ -17,7 +16,7 @@ const Button: React.FC<ButtonPros> = ({ label, disabled = false, onClick }) => {
             onClick={onClick}
             disabled={disabled}
         >
-            {label}
+            {children}
         </button>
     )
 }

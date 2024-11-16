@@ -2,19 +2,16 @@ import React, { useState } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import './Form.scss';
+import FormData from "../../interfaces/formData";
 
-interface FormData {
-    name: string;
-    email: string;    
-}
+
+
 
 interface FormProps {
     onSubmitForm: (data: FormData) => void; // Função passada pelo pai
 }
 
 const Form: React.FC<FormProps> = ({onSubmitForm}) => {
-
-
 
 
     const [formData, setFormData] = useState<FormData>({
@@ -43,7 +40,7 @@ const Form: React.FC<FormProps> = ({onSubmitForm}) => {
             <h1>Formulário</h1>
             <Input label="Digite seu Nome" type="text" value={formData.name} name="name" onChange={handleInputChange} />
             <Input label="Digite seu Email" type="text" value={formData.email} name="email" onChange={handleInputChange} />
-            <Button label="Salvar" />            
+            <Button>Salvar</Button>
         </form>
 
     );

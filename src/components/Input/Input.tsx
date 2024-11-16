@@ -30,6 +30,7 @@ const Input: React.FC<propInput> = ({
         onChange={onChange}
         required={required}
       />
+      
     </div>
   );
 }

@@ -1,31 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Form from '../../components/Form/Form';
+import FormData from '../../interfaces/formData';
+import './Home.scss';
 
-interface FormData {
-    name: string;
-    email: string;   
-}
+const Home: React.FC = () => {
+  const [listFormData, setListFormData] = useState<FormData[]>([]);
+  const [animatedIndex, setAnimatedIndex] = useState<number | null>(null);
 
-const Home : React.FC = () => {
+  const handleAddFormData = (novo: FormData) => {
+    setListFormData((prev) => [...prev, novo]);
 
-    
-    const [listFormData, setListFormData] = useState<FormData[]>([]);
+    // Define o índice do último item adicionado para animar
+    setAnimatedIndex(listFormData.length);
 
-    const handleAddFormData = (novo: FormData) => {
-        setListFormData((prev) => [...prev, novo ]);        
-    };
+    // Remove a animação após um tempo
+    setTimeout(() => setAnimatedIndex(null), 500); // Deve coincidir com o tempo da animação
+  };
 
+  return (
+    <>
+      <Form onSubmitForm={handleAddFormData} />
 
-
-    return (
-        <>
-            <Form onSubmitForm={handleAddFormData}/>
-            {
-                listFormData.map((item, index) => (
-                    <p key={index}> {item.name} {item.email}</p>
-                ))
-            }    
-        </>                           
-    )
+      <div className="alinhamento">
+        {listFormData.map((item, index) => (
+          <div
+            key={index}
+            className={`itemLista ${animatedIndex === index ? 'animate' : ''}`}
+          >
+            <h5>Item: {index}</h5>
+            <p>Nome: {item.name} </p>
+            <p>Email: {item.email}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 };
+
 export default Home;
