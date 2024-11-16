@@ -5,16 +5,21 @@ import './Form.scss';
 
 interface FormData {
     name: string;
-    email: string;
-    message: string;
+    email: string;    
 }
 
-const Form: React.FC<FormData> = () => {
+interface FormProps {
+    onSubmitForm: (data: FormData) => void; // Função passada pelo pai
+}
+
+const Form: React.FC<FormProps> = ({onSubmitForm}) => {
+
+
+
 
     const [formData, setFormData] = useState<FormData>({
         name: '',
-        email: '',
-        message: '',
+        email: '',        
     });
 
     const handleInputChange = (
@@ -27,8 +32,9 @@ const Form: React.FC<FormData> = () => {
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log(formData);
+        event.preventDefault();        
+        onSubmitForm(formData);
+        setFormData({ name: '', email: '' });
     }
 
     return (
@@ -37,8 +43,7 @@ const Form: React.FC<FormData> = () => {
             <h1>Formulário</h1>
             <Input label="Digite seu Nome" type="text" value={formData.name} name="name" onChange={handleInputChange} />
             <Input label="Digite seu Email" type="text" value={formData.email} name="email" onChange={handleInputChange} />
-            <Button label="Salvar" />
-            
+            <Button label="Salvar" />            
         </form>
 
     );

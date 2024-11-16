@@ -1,5 +1,6 @@
 import './App.css'
-import Form from './components/Form';
+import Home from './pages/Home/Home'
+
 
 function App() {
   
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className='container'>
 
-      <Form  />
+      <Home ></Home>
     
     </div>
   )
