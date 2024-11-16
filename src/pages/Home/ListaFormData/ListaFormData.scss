@@ -1,0 +1,43 @@
+.alinhamento {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    flex-direction: row-reverse;    
+    position: relative; /* Necessário para manipular posições dos filhos */
+  }
+  
+  .itemLista {
+    text-align: center;
+    background-color: aqua;
+    max-width: fit-content;
+    border-radius: 10%;
+    padding: 1em;
+    min-width: 10em;
+  
+    /* Inicialmente opaco */
+    opacity: 1;
+  
+    /* Transição suave */
+    transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+  }
+  
+  .itemLista.animate {
+    animation: fadeInScale 0.5s ease-in-out;
+  }
+  
+  /* Animação para novos itens */
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-to-right{
+    animation: fadeInScale 0.5s ease-in-out;
+  }

@@ -15,8 +15,8 @@ const Form: React.FC<FormProps> = ({onSubmitForm}) => {
 
 
     const [formData, setFormData] = useState<FormData>({
-        name: '',
-        email: '',        
+        name: 'nome padrão',
+        email: 'email padrão',        
     });
 
     const handleInputChange = (
@@ -31,7 +31,7 @@ const Form: React.FC<FormProps> = ({onSubmitForm}) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();        
         onSubmitForm(formData);
-        setFormData({ name: '', email: '' });
+        //setFormData({ name: '', email: '' });
     }
 
     return (
