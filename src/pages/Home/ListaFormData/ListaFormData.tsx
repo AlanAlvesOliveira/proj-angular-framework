@@ -1,13 +1,14 @@
 import FormData from "../../../interfaces/formData";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import './ListaFormData.scss'
 
 interface ListFormDataProps {
   list: FormData[];
-  setSelecionado: (formData: FormData) => void
+  onRemoveItem : (index: number) => void;
+  onSelecionItem : (index: number) => void;
 }
 
-const ListFormData: React.FC<ListFormDataProps> = ({ list , setSelecionado}) => {
+const ListFormData: React.FC<ListFormDataProps> = ({ list , onRemoveItem,onSelecionItem}) => {
         
 
   const [animatedIndex, setAnimatedIndex] = useState<number>(-1); // Controla o índice do item animado
@@ -23,7 +24,13 @@ const ListFormData: React.FC<ListFormDataProps> = ({ list , setSelecionado}) => 
       {list.map((item, index) => (
         <div
           key={index}
-          className={`itemLista ${index === animatedIndex ? 'animate' : 'animate-to-right'}`} // Aplica animação ao último item adicionado
+          className={
+            `itemLista 
+            ${index === animatedIndex ? 'animate' : 'animate-to-right'}   
+            ${item.selecionado ? 'selecionado' : ''}                                       
+            `} 
+          onClick={() => onSelecionItem(index)}
+          onDoubleClick={() => onRemoveItem(index)}
         >
           <h5>Item: {index}</h5>
           <p>Nome: {item.name}</p>
