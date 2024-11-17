@@ -15,11 +15,11 @@ const Home: React.FC = () => {
         return updatedList;
       });
     };
-  
+    
     return (
       <>
         <Form onSubmitForm={handleAddFormData} />
-        <ListFormData list={listFormData} />
+        <ListFormData list={listFormData} setSelecionado={handleAddFormData}/>
       </>
     );
   };

@@ -10,20 +10,21 @@
   .itemLista {
     text-align: center;
     background-color: aqua;
-    max-width: fit-content;
-    border-radius: 10%;
+    //max-width: fit-content;
+    border-radius: 10px;
     padding: 1em;
     min-width: 10em;
   
+    flex-grow: 1;
     /* Inicialmente opaco */
     opacity: 1;
   
     /* Transição suave */
-    transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+    //transition: transform 0.2s ease, top 0.2s ease, left 0.2s ease;
   }
   
   .itemLista.animate {
-    animation: fadeInScale 0.5s ease-in-out;
+    animation: fadeInScale 0.2s ease-in-out;
   }
   
   /* Animação para novos itens */
@@ -40,4 +41,8 @@
   
   .animate-to-right{
     animation: fadeInScale 0.5s ease-in-out;
+  }
+
+  .selecionado {
+    border: 1 solid black;
   }

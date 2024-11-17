@@ -16,7 +16,8 @@ const Form: React.FC<FormProps> = ({onSubmitForm}) => {
 
     const [formData, setFormData] = useState<FormData>({
         name: 'nome padrão',
-        email: 'email padrão',        
+        email: 'email padrão',    
+        selecionado: false,    
     });
 
     const handleInputChange = (

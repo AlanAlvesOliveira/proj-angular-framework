@@ -4,9 +4,10 @@ import './ListaFormData.scss'
 
 interface ListFormDataProps {
   list: FormData[];
+  setSelecionado: (formData: FormData) => void
 }
 
-const ListFormData: React.FC<ListFormDataProps> = ({ list }) => {
+const ListFormData: React.FC<ListFormDataProps> = ({ list , setSelecionado}) => {
         
 
   const [animatedIndex, setAnimatedIndex] = useState<number>(-1); // Controla o índice do item animado
