@@ -1,16 +1,16 @@
 import FormData from "../../../interfaces/formData";
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import './ListaFormData.scss'
-import logo from '../../../../public/icons/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
+import logo from '../../../assets/icons/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
 
 interface ListFormDataProps {
   list: FormData[];
-  onRemoveItem : (index: number) => void;
-  onSelecionItem : (index: number) => void;
+  onRemoveItem: (index: number) => void;
+  onSelecionItem: (index: number) => void;
 }
 
-const ListFormData: React.FC<ListFormDataProps> = ({ list , onRemoveItem,onSelecionItem}) => {
-        
+const ListFormData: React.FC<ListFormDataProps> = ({ list, onRemoveItem, onSelecionItem }) => {
+
 
   const [animatedIndex, setAnimatedIndex] = useState<number>(-1); // Controla o índice do item animado
 
@@ -30,11 +30,16 @@ const ListFormData: React.FC<ListFormDataProps> = ({ list , onRemoveItem,onSelec
             `itemLista 
             ${index === animatedIndex ? 'animate' : 'animate-to-right'}   
             ${item.selecionado ? 'selecionado' : ''}                                       
-            `} 
-          onClick={() => onSelecionItem(index)}          
+            `}
+          onClick={() => onSelecionItem(index)}
         >
-          
-          <img onClick={() => onRemoveItem(index)} src={logo}/>
+
+          <img onClick={(e) => {
+            e.stopPropagation();
+            onRemoveItem(index);
+          }
+
+          } src={logo} />
           <h5>Item: {index}</h5>
           <p>Nome: {item.name}</p>
           <p>Email: {item.email}</p>
