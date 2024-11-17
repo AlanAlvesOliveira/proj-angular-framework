@@ -1,6 +1,7 @@
 import FormData from "../../../interfaces/formData";
 import React, {  useEffect, useState } from "react";
 import './ListaFormData.scss'
+import logo from '../../../../public/icons/delete_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
 
 interface ListFormDataProps {
   list: FormData[];
@@ -22,6 +23,7 @@ const ListFormData: React.FC<ListFormDataProps> = ({ list , onRemoveItem,onSelec
   return (
     <div className="alinhamento">
       {list.map((item, index) => (
+
         <div
           key={index}
           className={
@@ -29,9 +31,10 @@ const ListFormData: React.FC<ListFormDataProps> = ({ list , onRemoveItem,onSelec
             ${index === animatedIndex ? 'animate' : 'animate-to-right'}   
             ${item.selecionado ? 'selecionado' : ''}                                       
             `} 
-          onClick={() => onSelecionItem(index)}
-          onDoubleClick={() => onRemoveItem(index)}
+          onClick={() => onSelecionItem(index)}          
         >
+          
+          <img onClick={() => onRemoveItem(index)} src={logo}/>
           <h5>Item: {index}</h5>
           <p>Nome: {item.name}</p>
           <p>Email: {item.email}</p>
