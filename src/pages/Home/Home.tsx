@@ -6,9 +6,8 @@ import ListFormData from './ListaFormData/ListaFormData';
 
 
 const Home: React.FC = () => {
+
   const [listFormData, setListFormData] = useState<FormData[]>([]);
-
-
 
   const handleAddFormData = (novo: FormData) => {
     setListFormData((prev) => {
@@ -22,7 +21,6 @@ const Home: React.FC = () => {
       prev.filter((_, i) => i !== index)
         .map((item) => ({ ...item, selecionado: false }))
     )
-
   };
 
   const handleSelectionItem = (index: number) => {

@@ -19,8 +19,9 @@
     flex-grow: 1;
     /* Inicialmente opaco */
     opacity: 1;
-  
+    user-select: none; 
     /* Transição suave */
+    cursor: pointer;
     //transition: transform 0.2s ease, top 0.2s ease, left 0.2s ease;
   }
   
